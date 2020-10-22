@@ -19,8 +19,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/posts','postsController@Allposts');
-Route::get('/comentarios','comentarioController@Allcomentarios');
-Route::get('/posts/{id}','postsController@Postid')->where(['campeon_id','[0-9]+']);
+Route::get('/posts/{id}','postsController@Postid')->where(['id','[0-9]+']);
 Route::post('/posts','postsController@Postpost' );
 Route::put('/posts/{id}','postsController@Putpost');
 Route::delete('/posts/{id}','postsController@Deletepost');
+
+Route::get('/comentarios','comentarioController@Allcomentarios');
+Route::get('/comentarios/{id}','comentarioController@comentarioid')->where(['id','[0-9]+']);
+Route::post('/comentarios','comentarioController@Postcomentario' );
+Route::put('/comentarios/{id}','comentarioController@Putcomentario');
+Route::delete('/comentarios/{id}','comentarioController@Deletecomentario');
